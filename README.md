@@ -25,11 +25,6 @@ This full-stack web application uses a combination of technologies to track and 
 👥 User registration and management\
 🖥️ User-friendly web interface
 
-## Demo
-
-  ```bash
-  node student.js
-
 ## Technologies Used
 
 - **Frontend:**
