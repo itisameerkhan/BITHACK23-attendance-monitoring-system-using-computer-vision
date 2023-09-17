@@ -27,9 +27,8 @@ This full-stack web application uses a combination of technologies to track and 
 
 ## Demo
 
-![Demo GIF](url_to_demo.gif)
-
-Check out our live demo [here](link_to_demo)!
+  ```bash
+  node student.js
 
 ## Technologies Used
 
@@ -48,7 +47,7 @@ Check out our live demo [here](link_to_demo)!
 
 - **Machine Learning:**
   - Python
-  - Add relevant machine learning libraries
+  - Dlib, cmake, openCV
 
 ## Getting Started
 
@@ -57,4 +56,4 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/attendance-monitoring-system.git
+   git clone https://github.com/itisameerkhan/BITHACK23-attendance-monitoring-system-using-computer-vision
