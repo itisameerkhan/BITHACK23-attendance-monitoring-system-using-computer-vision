@@ -58,8 +58,32 @@ To run this project locally, follow these steps:
 
 3. Set up your MySQL database and update the connection details in 
    ```bash
-   npm install
+   mysql.js
 
 4. Start the server
    ```bash
    node student.js
+
+5. Open your web browser and access the application at 
+   ```bash
+   http://127.0.0.1:7000/students
+
+## Usage 
+
+1. Register as a new user on the website.
+2. Access the attendance monitoring feature.
+3. View real-time attendance data.
+4. Feel free to contribute and enhance the project!
+   
+## Contributing 
+
+Contributions are welcome! Please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and commit them.
+4. Push to your fork and submit a pull request.
+
+## License 
+
+This project is licensed under the MIT License - see the LICENSE file for details.
