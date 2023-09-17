@@ -1,6 +1,5 @@
 # Attendance Monitoring System Using Computer Vision 📊👩‍🎓🖥️
 
-![Project Logo/Thumbnail](url_to_your_logo_or_thumbnail.png)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -52,3 +51,15 @@ To run this project locally, follow these steps:
 
    ```bash
    git clone https://github.com/itisameerkhan/BITHACK23-attendance-monitoring-system-using-computer-vision
+
+2. Install the dependencies
+   ```bash
+   npm install
+
+3. Set up your MySQL database and update the connection details in 
+   ```bash
+   npm install
+
+4. Start the server
+   ```bash
+   node student.js
