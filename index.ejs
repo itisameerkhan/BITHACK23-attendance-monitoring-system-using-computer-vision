@@ -110,7 +110,7 @@
                         <button id="profile-details-button">Profile Details</button>
                     </div>
                     <div id="profile-details-container" class='<%= students[i].rollnumber %>'>
-                        <div id="profile-details">
+                        <div id="profile-details" class="<%= students[i].rollnumber %>">
                             <i class="fa-solid fa-x" id="profile-container-close-button"></i>
                             <div class="profile-details-flex-container">
                                 <div class="profile-details-flex-upper">
@@ -153,24 +153,19 @@
                             <div class="profile-details-activity-container">
                                 <h3 id="tdyact">Today Activity</h3>
                                 <div class="profile-details-activity-bar-container">
-                                    <div class="activity-bar" id="student-activity-bar">
-                                        <div class="circle-bar" data-value="08:45">
-                                            <!-- <% if (100000 > 1000) { %>
-                                                <p data-attendance="true">true</p>
-                                            <% } else { %>
-                                                <p data-attendance="false">false</p>
-                                            <% } %> -->
-                                        </div>                                        
+                                    <div class="activity-bar" id="student-activity-bar" data-roll="<%- students[i].rollnumber %>">
+                                        <div class="circle-bar" data-value="08:45"></div>                                        
                                         <div class="line line-1" data-value="08:45"></div>
                                         <div class="circle-bar" data-value="09:45"></div>
                                         <div class="line line-1" data-value="09:45"></div>
-                                        <div class="circle-bar bar-1" data-value="11:00"></div>
-                                        <div class="line line-1" data-value="11:00"></div>
-                                        <div class="circle-bar bar-1" data-value="12:15"></div>
-                                        <div class="line line-1" data-value="12:15"></div>
-                                        <div class="circle-bar bar-1" data-value="13:30"></div>
-                                        <div class="line line-1" data-value="13:30"></div>
-                                        <div class="circle-bar bar-1" data-value="14:45"></div>
+                                        <div class="circle-bar bar-1" data-value="10:30"></div>
+                                        <div class="line line-1" data-value="10:30"></div>
+                                        <div class="circle-bar bar-1" data-value="11:30"></div>
+                                        <div class="line line-1" data-value="11:30"></div>
+                                        <div class="circle-bar bar-1" data-value="12:30"></div>
+                                        <div class="line line-1" data-value="12:30"></div>
+                                        <div class="circle-bar bar-1" data-value="1:30"></div>
+                                        <div></div>
                                     </div>
                                     <div class="period-bar">
                                         <h3>check in</h3>
@@ -205,9 +200,9 @@
                 <% if(attendanceTable.length > 0) { %>
                     <% for(let i=0;i<attendanceTable.length;i++) { %>
                         <tr>
-                            <td> <%- attendanceTable[i].rollNo %> </td>
-                            <td> <%- attendanceTable[i].studentName %> </td>
-                            <td><%- attendanceTable[i].department %></td>
+                            <td> <%- attendanceTable[i].rollnumber %> </td>
+                            <td> <%- attendanceTable[i].name %> </td>
+                            <td> <%- attendanceTable[i].department %></td>
                             <td> <%- attendanceTable[i].checkInDate %> </td>
                             <td> <%- attendanceTable[i].checkInTime %> </td>
                             <td> <%- attendanceTable[i].attendanceStatus %> </td>
@@ -723,7 +718,7 @@
             padding-left: 10px;
         }
     </style>
-    <script>
+    <script type="text/javascript">
         console.clear();
 
         //Registered Student Container 
@@ -878,8 +873,56 @@
             return `${hours}:${minutes}`
         }
         const getTime = getCurrentTime();
-        
 
+        //Attendance Status Bar
+
+        const activityBarContainer = document.querySelectorAll('.activity-bar');
+
+        const activityBar = [];
+
+        activityBarContainer.forEach(bar => {
+            const bars = bar.querySelectorAll('div');
+            activityBar.push(bars);
+        })
+
+        const checkInTimeDatas = [];
+
+        '<% attendanceTable.forEach((attendance) => { %>'
+            checkInTimeDatas.push('<%- attendance.checkInTime %>');
+        '<% }) %>'
+
+        for(let i=0;i<checkInTimeDatas.length;i++) {
+            if(checkInTimeDatas[i] === '') continue;
+
+            const [hours, minutes] = checkInTimeDatas[i].split(':')
+            console.log(hours + " " + minutes)
+
+            if((hours==8 && (minutes>=0 && minutes<=45) || (hours==9 && (minutes>=0 && minutes<=45)))) {
+                activityBar[i][0].style.backgroundColor = 'green';
+                activityBar[i][1].style.backgroundColor = 'green'
+            }
+            if((hours==9 && (minutes>=45 && minutes<=60) || (hours==10 && (minutes>=0 && minutes<=30)))) {
+                activityBar[i][2].style.backgroundColor = 'green';
+                activityBar[i][3].style.backgroundColor = 'green'
+            }
+            if((hours==10 && (minutes>=45 && minutes<=60) || (hours==11 && (minutes>=0 && minutes<=30)))) {
+                activityBar[i][4].style.backgroundColor = 'green';
+                activityBar[i][5].style.backgroundColor = 'green'
+            }
+            if((hours==11 && (minutes>=30 && minutes<=60) || (hours==12 && (minutes>=0 && minutes<=30)))) {
+                activityBar[i][6].style.backgroundColor = 'green';
+                activityBar[i][7].style.backgroundColor = 'green'
+            }
+            if((hours==12 && (minutes>=45 && minutes<=60) || (hours==1 && (minutes>=0 && minutes<=30)))) {
+                activityBar[i][8].style.backgroundColor = 'green';
+                activityBar[i][9].style.backgroundColor = 'green';
+            }
+            if((hours==1 && (minutes>=30 && minutes<=60) || (hours==2 && (minutes>=0 && minutes<=30)))) {
+                activityBar[i][10].style.backgroundColor = 'green';
+            }
+        }
     </script>
 </body>
 </html>
+
+
