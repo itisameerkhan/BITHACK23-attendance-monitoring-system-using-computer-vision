@@ -58,12 +58,6 @@ app.post('/',function(req, res){
 app.get('/students', (req,res)=>{ //
         const studentQuery = 'SELECT * FROM students ORDER BY name';
         const attendanceQuery = 'SELECT * FROM attendanceTable ORDER BY name';
-        
-        // con.query(sqlquery,(error,result) => {
-        //     if(error) console.log(error);
-        //     console.log(result);
-        //     res.render(__dirname + '/index', {students:result});
-        // })
 
         con.query(studentQuery, (error,studentResult) => {
             if(error) {
