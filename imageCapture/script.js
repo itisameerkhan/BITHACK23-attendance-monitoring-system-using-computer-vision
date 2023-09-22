@@ -4,7 +4,7 @@ const capturedImage = document.getElementById('capturedImage');
 const captureBtn = document.getElementById('captureBtn');
 
 // Predefined folder path
-const saveFolderPath = './Image'; // Replace with your desired folder path
+const saveFolderPath = '/Image'; // Replace with your desired folder path
 
 async function captureAndSaveImage() {
   const context = canvas.getContext('2d');
@@ -12,15 +12,18 @@ async function captureAndSaveImage() {
   canvas.height = video.videoHeight;
   context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
+  // Convert the canvas image to a Blob
   const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/jpeg'));
 
+  // Use the File System Access API to save the image to the predefined folder
   try {
-    const handle = await window.showDirectoryPicker();
-    const fileHandle = await handle.getFileHandle(`${saveFolderPath}/captured_image.jpg`, { create: true });
+    const handle = await window.showDirectoryPicker({ baseDirectory: saveFolderPath });
+    const fileHandle = await handle.getFileHandle('captured_image.jpg', { create: true });
     const writable = await fileHandle.createWritable();
     await writable.write(blob);
     await writable.close();
 
+    // Display the captured image
     capturedImage.src = URL.createObjectURL(blob);
   } catch (error) {
     console.error('Error saving image:', error);
