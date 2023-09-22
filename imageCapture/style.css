@@ -118,12 +118,16 @@ body
 }
 video 
 {
-    margin: 100px 0 0 200px;
+    width: 550px;
+    margin-top: 100px;
+    border: 10px solid #4A5BE6;
+    border-radius: 50px;
 }
 #captureBtn 
 {
     background-color: #4A5BE6;
-    padding:10px;
+    padding:10px 50px;
+    margin-top: 30px;
     border:none;
     color:white;
     border-radius: 15px;
@@ -133,4 +137,19 @@ video
 {
     background-color:#4A5BE6;
     box-shadow: 0px 0px 2px 2px gray;
+}
+.video-container 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#imageNameInput
+{
+    border:none;
+    background-color: #4A5BE6;
+    outline: none;
+    color:white;
+    padding:10px;
 }

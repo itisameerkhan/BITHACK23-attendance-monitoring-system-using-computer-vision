@@ -31,10 +31,12 @@
         <a href=""><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
 </div> 
-    <h1>Image Capture</h1>
-    <video id="video" autoplay></video>
-    <button id="captureBtn">Capture</button>
-    <canvas id="canvas" style="display: none;"></canvas>
+    <div class="video-container">
+        <video id="video" autoplay></video>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <input type="text" id="imageNameInput" placeholder="Enter image name">
+        <button id="captureBtn">Capture and Save</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
