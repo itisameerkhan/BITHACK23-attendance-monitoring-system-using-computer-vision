@@ -27,8 +27,7 @@ app.post('/',function(req, res){
     let email = req.body.email;
     let degreelevel = req.body.degreelevel;
 
-    console.log(batch)
-    console.log('rere')
+
 
     if(name === "" || rollnumber==='' || designation==='' || department==='N/A' ||
      gender === 'N/A' || batch === 'N/A' || studentclass === '' || studentID === '' 
@@ -55,11 +54,14 @@ app.post('/',function(req, res){
 
 });
 
+
+
 app.get('/students', (req,res)=>{ //
         const studentQuery = 'SELECT * FROM students ORDER BY name';
         const attendanceQuery = 'SELECT * FROM attendanceTable ORDER BY name';
 
         con.query(studentQuery, (error,studentResult) => {
+
             if(error) {
                 console.log(error);
                 return;
