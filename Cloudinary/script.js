@@ -21,12 +21,15 @@ const watcher = chokidar.watch(folderPath, {
 
 // Handle file addition events
 watcher.on('add', (filePath) => {
-  // Upload the newly added file to Cloudinary
-  cloudinary.uploader.upload(filePath, (error, result) => {
+  // Extract the actual filename from the path
+  const filename = path.basename(filePath);
+
+  // Upload the newly added file to Cloudinary with the specified public_id (filename)
+  cloudinary.uploader.upload(filePath, { public_id: filename }, (error, result) => {
     if (error) {
       console.error('Error uploading file:', error);
     } else {
-      console.log(`Uploaded ${filePath} to Cloudinary. Public URL: ${result.secure_url}`);
+      console.log(`Uploaded ${filePath} to Cloudinary with filename: ${filename}. Public URL: ${result.secure_url}`);
     }
   });
 });
