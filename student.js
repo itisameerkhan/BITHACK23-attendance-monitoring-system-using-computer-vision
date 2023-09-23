@@ -57,8 +57,8 @@ app.post('/',function(req, res){
 
 
 app.get('/students', (req,res)=>{ //
-        const studentQuery = 'SELECT * FROM students ORDER BY name';
-        const attendanceQuery = 'SELECT * FROM attendanceTable ORDER BY name';
+        const studentQuery = 'SELECT * FROM students INNER JOIN cloudinary ON students.rollnumber = cloudinary.display_name ORDER BY students.rollnumber';
+        const attendanceQuery = 'SELECT * FROM attendanceTable ORDER BY rollnumber';
 
         con.query(studentQuery, (error,studentResult) => {
 

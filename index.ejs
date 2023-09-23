@@ -80,11 +80,8 @@
             <% if(students.length > 0){ %>
                 <% for(let i=0;i<students.length;i++){ %>
                     <div class="student-card" id="<%= students[i].rollnumber %>">
-                        <% if(students[i].gender === 'Male') { %>
-                            <img src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg" alt="" id="student-profile">
-                            <% } else { %>
-                                <img src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671132.jpg" alt="" id="student-profile">
-                                <% } %>
+                       
+                        <img src="<%- students[i].cloudinary_url %>" alt="" id="student-img-display">
                         <p id="student-card-name" data-student-name>
                             <%- students[i].name %>
                         </p>
@@ -247,6 +244,14 @@
             margin-left: 20px;
             padding:5px;
             border-radius: 5px;
+        }
+        #student-img-display 
+        {
+            height: 75px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
         }
         .top-container-search input 
         {
