@@ -1,8 +1,5 @@
 # Attendance Monitoring System Using Computer Vision 📊👩‍🎓🖥️
 
-
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
 **Monitor student attendance with ease!**
 
 This full-stack web application uses a combination of technologies to track and display student attendance using machine learning algorithms. You can also manage user information on our website.
