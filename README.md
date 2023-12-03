@@ -86,4 +86,8 @@ Contributions are welcome! Please follow these guidelines:
 
 ## License 
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This repository does not have a specific license©, so you are free to use the code in any way you like without any restrictions.
+
+If you have any questions or suggestions, feel free to open an issue in the repository.
+
+Happy coding!
